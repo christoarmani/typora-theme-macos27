@@ -887,6 +887,9 @@ footer.ty-footer { border-top: 1px solid var(--m-border); }
    Print / PDF export — always the light palette, black text
    ========================================================================== */
 @media print {
+  /* One over-wide equation made the print shrink every page to fit it; clip it to the column instead */
+  #write mjx-container[display="true"], #write mjx-container[display="true"] > svg { min-width: 0 !important; max-width: 100%; }
+  #write .md-math-block, #write mjx-container[display="true"] { overflow: hidden !important; }
   /* Print uses the macOS 27 Light palette, so every block keeps its on-screen Light styling */
   :root {
     --m-bg: #FFFFFF;
@@ -939,13 +942,16 @@ footer.ty-footer { border-top: 1px solid var(--m-border); }
   }
   #write .md-diagram-panel svg text:not(.slice):not(.row), #write .md-diagram-panel .nodeLabel, #write .md-diagram-panel .label, #write .md-diagram-panel span.edgeLabel { fill: #1d1d1f !important; color: #1d1d1f !important; }
   html { font-size: 11pt; }
-  body, #write { background: var(--m-bg) !important; color: var(--m-text) !important; }
-  /* Typora sets the top/bottom PDF margin (Export > PDF, 16 mm default); the sides come from the theme */
+  html, body, #write { background: var(--m-bg) !important; color: var(--m-text) !important; }
+  /* Sides come from the theme; Typora's Mac export forces top/bottom page margins to 0 */
   #write { max-width: none; padding: 0 44pt !important; }
   #write h2, #write h3, #write h4 { page-break-after: avoid; break-after: avoid; }
   #write pre, #write table, #write img, #write blockquote { page-break-inside: avoid; break-inside: avoid; }
   #write h5, #write h6 { page-break-after: avoid; break-after: avoid; }
   #write .md-diagram-panel, #write .md-alert, #write .mathjax-block { page-break-inside: avoid; break-inside: avoid; }
+  /* Headings stay with their text; no lone lines */
+  #write h1 { page-break-after: avoid; break-after: avoid; }
+  #write p, #write li { orphans: 3; widows: 3; }
 }
 
 /* ==========================================================================
