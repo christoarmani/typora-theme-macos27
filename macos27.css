@@ -9,7 +9,12 @@
  */
 
 :root {
-  --mermaid-theme: default;
+  --mermaid-theme: macos27;
+  --mermaid-font-family: -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --node-fill: rgb(232, 241, 255);
+  --cluster-fill: var(--m-surface-2);
+  --node-text-color: var(--m-text);
+  --mermaid-background: var(--m-bg);
   --bg-color: #FFFFFF;
   --text-color: #1D1D1F;
   --side-bar-bg-color: #F3F3F5;
@@ -24,7 +29,7 @@
   --primary-color: #0064D2;
   --primary-btn-border-color: #0064D2;
   --primary-btn-text-color: #FFFFFF;
-  --select-text-bg-color: #B9D8FF;
+  --select-text-bg-color: #B3D7FF;
   --select-text-font-color: #1D1D1F;
   --md-char-color: #6A6A6F;
   --meta-content-color: #5E5E63;
@@ -56,10 +61,10 @@
   --m-border-strong: #C7C7CC;
   --m-control-border: #86868B;
   --m-quote-bar: #86868B;
-  --m-focus: #0064D2;
-  --m-focus-halo: rgba(0, 100, 210, 0.28);
+  --m-focus: #007AFF;
+  --m-focus-halo: rgba(0, 122, 255, 0.28);
   --m-caret: #0064D2;
-  --m-select-bg: #B9D8FF;
+  --m-select-bg: #B3D7FF;
   --m-select-text: #1D1D1F;
   --m-match-bg: #DCEBFF;
   --m-mark-bg: #FFE27A;
@@ -75,6 +80,13 @@
   --m-alert-important: #7B3FC4;
   --m-alert-warning: #9A5B00;
   --m-alert-caution: #C4261D;
+  --m-chart-1: #0088FF;
+  --m-chart-2: #CB30E0;
+  --m-chart-3: #34C759;
+  --m-chart-4: #FF8D28;
+  --m-chart-5: #FF2D55;
+  --m-chart-6: #00C3D0;
+  --m-diagram-node: var(--m-bg);
   --s-keyword: #9B2393;
   --s-number: #1C00CF;
   --s-def: #0F5F91;
@@ -91,57 +103,62 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --mermaid-theme: dark;
-    --bg-color: #1E1E1E;
-    --text-color: #E6E6E9;
-    --side-bar-bg-color: #262628;
-    --control-text-color: #A6A6AB;
-    --control-text-hover-bg-color: #38383C;
-    --item-hover-bg-color: #38383C;
-    --item-hover-text-color: #E6E6E9;
+    --mermaid-theme: macos27;
+    --mermaid-font-family: -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+    --node-fill: rgb(36, 52, 76);
+    --cluster-fill: var(--m-surface-2);
+    --node-text-color: var(--m-text);
+    --mermaid-background: var(--m-bg);
+    --bg-color: #1C1C1E;
+    --text-color: #F2F2F7;
+    --side-bar-bg-color: #252527;
+    --control-text-color: #B4B4BA;
+    --control-text-hover-bg-color: #3A3A3C;
+    --item-hover-bg-color: #3A3A3C;
+    --item-hover-text-color: #F2F2F7;
     --active-file-bg-color: #0059C7;
     --active-file-text-color: #FFFFFF;
     --active-file-border-color: #0059C7;
-    --window-border: 1px solid #3A3A3D;
+    --window-border: 1px solid #424245;
     --primary-color: #0A6CE0;
     --primary-btn-border-color: #0A6CE0;
     --primary-btn-text-color: #FFFFFF;
-    --select-text-bg-color: #1E4A80;
+    --select-text-bg-color: #3F638B;
     --select-text-font-color: #FFFFFF;
-    --md-char-color: #9A9AA0;
-    --meta-content-color: #A6A6AB;
-    --heading-char-color: #9A9AA0;
+    --md-char-color: #A0A0A6;
+    --meta-content-color: #B4B4BA;
+    --heading-char-color: #A0A0A6;
     --search-select-bg-color: #FF9F0A;
     --search-select-text-color: #1D1D1F;
-    --rawblock-edit-panel-bd: #2A2A2D;
-    --blur-text-color: #A6A6AB;
-    --code-block-bg-color: #2A2A2D;
-    --drag-placeholder-color: #A6A6AB;
-    --m-bg: #1E1E1E;
-    --m-surface: #262628;
-    --m-surface-2: #2A2A2D;
-    --m-zebra: #232325;
-    --m-hover-bg: #38383C;
+    --rawblock-edit-panel-bd: #2C2C2E;
+    --blur-text-color: #B4B4BA;
+    --code-block-bg-color: #2C2C2E;
+    --drag-placeholder-color: #B4B4BA;
+    --m-bg: #1C1C1E;
+    --m-surface: #252527;
+    --m-surface-2: #2C2C2E;
+    --m-zebra: #28282A;
+    --m-hover-bg: #3A3A3C;
     --m-active-bg: #0059C7;
     --m-on-accent: #FFFFFF;
     --m-accent-fill: #0A6CE0;
     --m-accent-fill-hover: #0A5FC6;
-    --m-text: #E6E6E9;
-    --m-text-2: #A6A6AB;
-    --m-heading: #F5F5F7;
-    --m-md-char: #9A9AA0;
+    --m-text: #F2F2F7;
+    --m-text-2: #B4B4BA;
+    --m-heading: #FFFFFF;
+    --m-md-char: #A0A0A6;
     --m-link: #5EAEFF;
     --m-link-hover: #8EC5FF;
     --m-link-underline: rgba(94, 174, 255, 0.5);
     --m-code-text: #FF8A80;
-    --m-border: #3A3A3D;
-    --m-border-strong: #545458;
-    --m-control-border: #7C7C82;
-    --m-quote-bar: #7C7C82;
+    --m-border: #424245;
+    --m-border-strong: #5E5E63;
+    --m-control-border: #8A8A90;
+    --m-quote-bar: #8A8A90;
     --m-focus: #4DA3FF;
     --m-focus-halo: rgba(77, 163, 255, 0.35);
     --m-caret: #4DA3FF;
-    --m-select-bg: #1E4A80;
+    --m-select-bg: #3F638B;
     --m-select-text: #FFFFFF;
     --m-match-bg: #21456E;
     --m-mark-bg: #FFD60A;
@@ -157,6 +174,13 @@
     --m-alert-important: #C59BFF;
     --m-alert-warning: #FFB340;
     --m-alert-caution: #FF7A70;
+    --m-chart-1: #0091FF;
+    --m-chart-2: #DB34F2;
+    --m-chart-3: #30D158;
+    --m-chart-4: #FF9230;
+    --m-chart-5: #FF375F;
+    --m-chart-6: #00D2E0;
+    --m-diagram-node: color-mix(in srgb, var(--m-surface-2) 90%, var(--m-text));
     --s-keyword: #FC5FA3;
     --s-number: #D9C97C;
     --s-def: #5DC4E0;
@@ -493,7 +517,24 @@ kbd {
 #write table td.md-focus, #write table th.md-focus { box-shadow: inset 0 0 0 2px var(--m-focus); }
 
 /* Table editing toolbar */
-.md-table-edit, #write .md-table-edit { color: var(--m-text-2); background: var(--m-surface); border-radius: var(--m-radius-s); }
+/* Table toolbar: fit-to-content floating capsule, like the block toolbars */
+#write .ty-table-edit.md-table-edit {
+  display: flex; align-items: center; gap: 2px;
+  width: auto; height: 28px; box-sizing: border-box;
+  margin-left: 0; margin-top: -6px; padding: 0 3px;
+  color: var(--m-text-2);
+  background: var(--m-surface);
+  border: 1px solid var(--m-border);
+  border-radius: var(--m-radius-s);
+  box-shadow: var(--m-shadow-pop);
+}
+#write .ty-table-edit .md-th-button, #write .ty-table-edit .right-th-button { float: none; display: inline-flex; align-items: center; }
+#write .ty-table-edit .right-th-button:first-of-type { margin-left: 6px; padding-left: 6px; border-left: 1px solid var(--m-border); }
+#write .ty-table-edit button { display: inline-flex; align-items: center; justify-content: center; height: 22px; min-width: 22px; padding: 0 5px; line-height: 1; border: 0; border-radius: var(--m-radius-s); color: var(--m-text-2); background: transparent; }
+#write .ty-table-edit button:hover, #write .ty-table-edit button.active { color: var(--m-text); background: var(--m-hover-bg); }
+/* Image size buttons (overlay on images): keep the dark overlay, theme radius */
+#write .md-image-btn { border-radius: var(--m-radius-s); padding: 0 8px; background: rgba(0, 0, 0, 0.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+#write .md-image-btn.selected, #write .md-image-btn:hover { background: rgba(0, 0, 0, 0.72); }
 .md-table-edit .md-table-btn, #md-table-edit-toolbar button { color: var(--m-text-2); }
 .md-table-edit .md-table-btn:hover { color: var(--m-text); background: var(--m-hover-bg); }
 
@@ -523,31 +564,189 @@ kbd {
 }
 
 #write .md-toc {
-  padding: 0.75em 1.1em;
+  margin-left: 0;
+  margin-right: 0;
+  min-height: 0; /* Typora sets 3.58rem, which pads a short TOC at the bottom */
+  padding: 0.625rem 1rem; /* line-height adds ~6px above/below the text, so this reads as an even 16px */
   background: var(--m-surface-2);
   border: 1px solid var(--m-border);
   border-radius: var(--m-radius-m);
   font-size: 0.9375rem;
 }
-#write .md-toc-content { margin: 0; }
+#write .md-toc-content, #write .md-toc:focus .md-toc-content { margin: 0; padding: 0; border: 0; }
 #write .md-toc-item { color: var(--m-link); }
 #write .md-toc-h1 .md-toc-inner { font-weight: 650; }
+/* TOC toolbar (shown while the TOC is focused): small floating capsule, like the zoom popup */
+#write div.md-toc-tooltip {
+  top: -34px; left: auto; right: 0; width: auto;
+  height: 28px; box-sizing: border-box;
+  padding: 0 3px 0 10px;
+  line-height: 1; font-size: 12px; font-weight: 600;
+  color: var(--m-text-2);
+  background: var(--m-surface);
+  border: 1px solid var(--m-border);
+  border-radius: var(--m-radius-s);
+  box-shadow: var(--m-shadow-pop);
+}
+#write .md-toc.md-focus div.md-toc-tooltip, #write .md-toc:focus div.md-toc-tooltip { display: flex !important; align-items: center; }
+#write .md-toc-tooltip .btn-default { display: inline-flex; align-items: center; justify-content: center; height: 22px; color: var(--m-text-2); border: 0; border-radius: var(--m-radius-s); padding: 0 6px; line-height: 1; margin: 0 0 0 6px; }
+#write .md-toc-tooltip .btn-default:hover { color: var(--m-text); background: var(--m-hover-bg); }
+
+/* HTML / math block toolbar: same floating capsule as the TOC toolbar */
+#write .md-rawblock-tooltip {
+  top: -34px; right: 0; height: 28px; box-sizing: border-box;
+  padding: 0 3px 0 10px; line-height: 22px; font-size: 12px; font-weight: 600;
+  color: var(--m-text-2);
+  background: var(--m-surface);
+  border: 1px solid var(--m-border);
+  border-radius: var(--m-radius-s);
+  box-shadow: var(--m-shadow-pop);
+}
+#write .md-rawblock:hover > .md-rawblock-tooltip, #write .md-rawblock.ty-hover > .md-rawblock-tooltip,
+#write .md-rawblock-on-edit > .md-rawblock-tooltip { display: flex !important; align-items: center; animation: none; }
+#write .md-rawblock-tooltip-name { padding-left: 0; opacity: 1; margin-right: 4px; }
+#write .md-rawblock-tooltip-btn { width: auto; min-width: 22px; height: 22px; line-height: 22px; padding: 0 6px; text-align: center; color: var(--m-text-2); border-radius: var(--m-radius-s); }
+#write .md-rawblock-tooltip-btn:hover { color: var(--m-text); background: var(--m-hover-bg); }
+
+/* Every other floating Typora control: same surface, hairline, radius and shadow as menus */
+body .popover, body .md-table-resize-popover, body #toc-dropmenu, body #user-context-menu,
+body .CodeMirror-hints, body .CodeMirror-lint-tooltip, body .md-f-tooltip, body .ty-tooltip,
+body #md-notification, body #common-dialog .modal-content, body #table-insert-dialog .modal-content, body .modal-dialog .modal-content {
+  color: var(--m-text);
+  background: var(--m-surface);
+  border: 1px solid var(--m-border);
+  border-radius: var(--m-radius-l);
+  box-shadow: var(--m-shadow-pop);
+  -webkit-filter: none; filter: none;
+}
+body .ty-tooltip, body .CodeMirror-lint-tooltip, body .md-f-tooltip { border-radius: var(--m-radius-s); font-family: var(--m-font-text); font-size: 12px; }
+body .popover.bottom > .arrow:after { border-bottom-color: var(--m-surface); }
+body .popover.top > .arrow:after { border-top-color: var(--m-surface); }
+body .popover > .arrow { border-color: transparent; }
+body .popover-title { color: var(--m-text); font-weight: 600; background: transparent; border-bottom: 1px solid var(--m-border); }
+body .md-grid-board-wrap .popover-title { border-top: 1px solid var(--m-border); }
+body #md-notification { width: auto; max-width: 560px; margin: 8px auto 0; }
+body .md-notification-detail { color: var(--m-text-2); }
+/* Notification: clear of the title bar, text never runs under the Close button, bell centred on the text */
+.mac-seamless-mode #md-notification { padding-top: 0; }
+.mac-seamless-mode .md-notification-container, .unibody-window .md-notification-container { padding-top: calc(var(--title-bar-height, 28px) + 8px); }
+body #md-notification { position: relative; top: 0; left: auto; right: auto; width: 100%; min-height: 40px; }
+body #md-notification:before { position: absolute; top: 50%; left: 16px; margin: 0; transform: translateY(-50%); color: var(--m-text-2); }
+body #md-notification p { margin: 10px 0; padding: 0 64px 0 40px; }
+body #md-notification .typora-export-spinner { margin-top: 0; top: 50%; right: 16px; height: 14px; transform: translateY(-50%); }
+body #md-notification .close-btn { width: auto; height: 24px; top: calc(50% - 12px); right: 12px; margin: 0; padding: 0 10px; font-size: 12px; line-height: 22px; color: var(--m-text-2); background: transparent; border: 1px solid var(--m-border-strong); border-radius: var(--m-radius-s); }
+body #md-notification .close-btn:hover { color: var(--m-text); background: var(--m-hover-bg); }
+
+/* Rows inside those surfaces: rounded, accent selection like menu items */
+body .CodeMirror-hints { padding: 4px; }
+body .CodeMirror-hint { color: var(--m-text); padding: 2px 8px; border-radius: var(--m-radius-s); }
+body li.CodeMirror-hint-active { color: var(--m-on-accent); background: var(--m-active-bg); }
+body .menuitem-group-label, body .ty-menu-shortcut, body .menuitem-no-history { color: var(--m-text-2); }
+body #sidebar-files-menu > .show + .menuitem-group-label.show { border-top: 1px solid var(--m-border); }
+body .folder-menu-item, body .selected-folder-menu-item { border-radius: var(--m-radius-s); }
+
+/* Small icon buttons: grey hover, rounded */
+body #searchpanel-case-option-btn, body #searchpanel-word-option-btn, body #sidebar-menu-btn, body #close-sidebar-menu-btn,
+body #md-notification-more-btn, body .searchpanel-msg-btn { color: var(--m-text-2); border-radius: var(--m-radius-s); }
+body #searchpanel-case-option-btn:hover, body #searchpanel-word-option-btn:hover, body #sidebar-menu-btn:hover,
+body #close-sidebar-menu-btn:hover, body #md-notification-more-btn:hover, body .searchpanel-msg-btn:hover { color: var(--m-text); background: var(--m-hover-bg); }
+
+/* Backdrops, banners and hint text */
+body .modal-backdrop.in { background: rgba(0, 0, 0, 0.25); }
+body #ty-preview-banner { color: var(--m-text); background: var(--m-surface-2); border-bottom: 1px solid var(--m-border); }
+body #bottom-hint, body .ty-block-hint, body .md-show-hint, body #searchpanel-msg, body #search-panel-status { color: var(--m-text-2); }
+body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--m-border); border-radius: 0 0 var(--m-radius-m) var(--m-radius-m); background: var(--m-surface-2); }
 
 #write .md-math-block, #write .mathjax-block { color: var(--m-text); }
-#write .md-rawblock-container, #write .md-math-block .code-tooltip, #write .md-rawblock .code-tooltip {
+#write .md-math-block .code-tooltip, #write .md-rawblock .code-tooltip {
   color: var(--m-text);
   background: var(--m-surface-2);
   border-radius: var(--m-radius-m);
 }
+/* HTML blocks: no card at rest, card only on hover / while editing (Typora's default) */
+#write .md-rawblock-container { color: var(--m-text); background: transparent; border-radius: var(--m-radius-m); }
+#write .md-math-block > .md-rawblock-container { background: var(--m-surface-2); }
+/* HTML blocks: hover/edit card gets even padding; negative margin keeps content in place */
+#write .md-htmlblock > .md-rawblock-container { padding: 0.75rem; margin: -0.75rem 0; }
+#write .md-htmlblock-container > :first-child { margin-top: 0; }
+#write .md-htmlblock-container > :last-child, #write .md-htmlblock-container details > :last-child, #write .md-htmlblock-container details:not([open]) > summary { margin-bottom: 0; }
 #write .md-rawblock:hover > .md-rawblock-container, #write .md-rawblock-on-edit > .md-rawblock-container {
   background: var(--m-surface-2);
 }
 #write .md-rawblock-control { color: var(--m-text-2); background: var(--m-surface); }
+/* Collapsible sections: macOS disclosure chevron */
+#write details { margin: 0 0 1.1em; }
+#write summary { cursor: pointer; font-weight: 600; list-style: none; }
+#write summary::-webkit-details-marker { display: none; }
+#write summary::before {
+  content: ""; display: inline-block; width: 0.42em; height: 0.42em;
+  margin: 0 0.6em 0.14em 0.1em;
+  border-right: 1.5px solid var(--m-text-2); border-bottom: 1.5px solid var(--m-text-2);
+  transform: rotate(-45deg); transition: transform 0.15s ease;
+}
+#write details[open] > summary::before { transform: rotate(45deg); margin-bottom: 0.24em; }
+#write details > :not(summary) { margin-left: 1.15em; }
+#write details[open] > summary { margin-bottom: 0.5em; }
+/* Media in HTML blocks keeps its own shape */
+#write .md-htmlblock iframe, #write .md-htmlblock video { display: block; margin: 0 auto; max-width: 100%; border-radius: var(--m-radius-m); }
+#write .md-htmlblock audio { display: block; width: 100%; }
 #write mjx-container, #write .MathJax_SVG { color: var(--m-text); }
 
 /* Mermaid / flowchart / sequence: Typora picks the matching mermaid theme */
 #write .md-diagram-panel { color: var(--m-text); }
 #write .md-diagram-panel-error { color: var(--s-error); }
+/* Diagrams: macOS surfaces, hairlines and system colours */
+#write .md-diagram-panel .node rect, #write .md-diagram-panel .node polygon, #write .md-diagram-panel .node circle:not(.state-start), #write .md-diagram-panel .node ellipse, #write .md-diagram-panel .node path,
+#write .md-diagram-panel .classGroup rect, #write .md-diagram-panel .stateGroup rect, #write .md-diagram-panel rect.actor, #write .md-diagram-panel .actor-box, #write .md-diagram-panel .cluster rect { fill: var(--m-diagram-node) !important; stroke: var(--m-border-strong) !important; stroke-width: 1px !important; }
+#write .md-diagram-panel .classGroup line, #write .md-diagram-panel .divider path { stroke: var(--m-border-strong) !important; }
+#write .md-diagram-panel .nodeLabel, #write .md-diagram-panel .label, #write .md-diagram-panel .label text, #write .md-diagram-panel .classLabel .label, #write .md-diagram-panel text.actor, #write .md-diagram-panel text.actor tspan, #write .md-diagram-panel .messageText, #write .md-diagram-panel .noteText, #write .md-diagram-panel .noteText tspan, #write .md-diagram-panel .stateLabel text, #write .md-diagram-panel .cluster-label { color: var(--m-text) !important; fill: var(--m-text) !important; }
+#write .md-diagram-panel .flowchart-link, #write .md-diagram-panel .edgePath .path, #write .md-diagram-panel .relation, #write .md-diagram-panel .transition, #write .md-diagram-panel .messageLine0, #write .md-diagram-panel .messageLine1 { stroke: var(--m-text-2) !important; }
+#write .md-diagram-panel .actor-line { stroke: var(--m-border-strong) !important; }
+#write .md-diagram-panel marker path, #write .md-diagram-panel .arrowheadPath, #write .md-diagram-panel .arrowMarkerPath, #write .md-diagram-panel #arrowhead path, #write .md-diagram-panel #crosshead path { fill: var(--m-text-2) !important; stroke: var(--m-text-2) !important; }
+#write .md-diagram-panel .state-start, #write .md-diagram-panel circle.state-start, #write .md-diagram-panel .end-state-inner, #write .md-diagram-panel .node circle.end-state-inner:not(.state-start) { fill: var(--m-text) !important; stroke: var(--m-text) !important; }
+#write .md-diagram-panel .state-end, #write .md-diagram-panel .end-state-outer, #write .md-diagram-panel .node circle.end-state-outer:not(.state-start) { fill: var(--m-diagram-node) !important; stroke: var(--m-text) !important; stroke-width: 1.5px !important; }
+#write .md-diagram-panel g.node[id*="_end"] > g > path { fill: var(--m-diagram-node) !important; stroke: var(--m-text) !important; stroke-width: 1.5px !important; }
+#write .md-diagram-panel g.node[id*="_end"] > g > g path { fill: var(--m-text) !important; stroke: var(--m-text) !important; }
+#write .md-diagram-panel rect.note, #write .md-diagram-panel .note { fill: color-mix(in srgb, var(--m-chart-1) 14%, var(--m-surface)) !important; stroke: color-mix(in srgb, var(--m-chart-1) 45%, transparent) !important; }
+#write .md-diagram-panel .edgeLabel, #write .md-diagram-panel .edgeLabel p, #write .md-diagram-panel .labelBkg { background-color: var(--m-surface-2) !important; color: var(--m-text) !important; }
+#write .md-diagram-panel .edgeLabel rect { fill: var(--m-surface-2) !important; opacity: 1 !important; }
+#write .md-diagram-panel text.actor { transform: translateY(0.3em); transform-box: fill-box; }
+/* Pie */
+#write .md-diagram-panel .pieCircle:nth-of-type(6n+1), #write .md-diagram-panel .legend:nth-of-type(6n+1) rect { fill: var(--m-chart-1) !important; stroke: var(--m-chart-1) !important; }
+#write .md-diagram-panel .pieCircle:nth-of-type(6n+2), #write .md-diagram-panel .legend:nth-of-type(6n+2) rect { fill: var(--m-chart-2) !important; stroke: var(--m-chart-2) !important; }
+#write .md-diagram-panel .pieCircle:nth-of-type(6n+3), #write .md-diagram-panel .legend:nth-of-type(6n+3) rect { fill: var(--m-chart-3) !important; stroke: var(--m-chart-3) !important; }
+#write .md-diagram-panel .pieCircle:nth-of-type(6n+4), #write .md-diagram-panel .legend:nth-of-type(6n+4) rect { fill: var(--m-chart-4) !important; stroke: var(--m-chart-4) !important; }
+#write .md-diagram-panel .pieCircle:nth-of-type(6n+5), #write .md-diagram-panel .legend:nth-of-type(6n+5) rect { fill: var(--m-chart-5) !important; stroke: var(--m-chart-5) !important; }
+#write .md-diagram-panel .pieCircle:nth-of-type(6n), #write .md-diagram-panel .legend:nth-of-type(6n) rect { fill: var(--m-chart-6) !important; stroke: var(--m-chart-6) !important; }
+#write .md-diagram-panel .pieCircle { stroke: var(--m-surface-2) !important; stroke-width: 2px !important; opacity: 1 !important; }
+#write .md-diagram-panel .pieOuterCircle { stroke: none !important; }
+#write .md-diagram-panel .slice { fill: #FFFFFF !important; font-weight: 600; paint-order: stroke; stroke: rgba(0,0,0,0.35); stroke-width: 3px; }
+#write .md-diagram-panel .pieTitleText, #write .md-diagram-panel .legend text { fill: var(--m-text) !important; }
+/* Gantt */
+#write .md-diagram-panel .task0, #write .md-diagram-panel .active0, #write .md-diagram-panel .done0, #write .md-diagram-panel .crit0 { fill: var(--m-chart-1) !important; stroke: var(--m-chart-1) !important; }
+#write .md-diagram-panel .task1, #write .md-diagram-panel .active1, #write .md-diagram-panel .done1, #write .md-diagram-panel .crit1 { fill: var(--m-chart-2) !important; stroke: var(--m-chart-2) !important; }
+#write .md-diagram-panel .task2, #write .md-diagram-panel .active2, #write .md-diagram-panel .done2, #write .md-diagram-panel .crit2 { fill: var(--m-chart-3) !important; stroke: var(--m-chart-3) !important; }
+#write .md-diagram-panel .task3, #write .md-diagram-panel .active3, #write .md-diagram-panel .done3, #write .md-diagram-panel .crit3 { fill: var(--m-chart-4) !important; stroke: var(--m-chart-4) !important; }
+#write .md-diagram-panel .section0, #write .md-diagram-panel .section2 { fill: color-mix(in srgb, var(--m-chart-1) 7%, transparent) !important; }
+#write .md-diagram-panel .section1, #write .md-diagram-panel .section3 { fill: transparent !important; }
+#write .md-diagram-panel .taskText, #write .md-diagram-panel .taskTextOutsideRight, #write .md-diagram-panel .taskTextOutsideLeft { fill: var(--m-text) !important; }
+#write .md-diagram-panel .taskText { fill: #FFFFFF !important; font-weight: 600; }
+#write .md-diagram-panel .sectionTitle, #write .md-diagram-panel .titleText, #write .md-diagram-panel .grid .tick text { fill: var(--m-text-2) !important; }
+#write .md-diagram-panel .titleText { fill: var(--m-text) !important; }
+#write .md-diagram-panel .grid .tick line { stroke: var(--m-border) !important; }
+#write .md-diagram-panel .grid path { stroke: none !important; }
+#write .md-diagram-panel .today { stroke: var(--m-chart-5) !important; }
+/* flowchart.js and js-sequence (Raphael SVG), matched by fence language */
+#write [lang="sequence"] .md-diagram-panel svg rect, #write [lang="flow"] .md-diagram-panel svg rect,
+#write [lang="flow"] .md-diagram-panel svg path:not([fill="none"]) { fill: var(--m-diagram-node) !important; stroke: var(--m-border-strong) !important; stroke-width: 1px !important; }
+#write [lang="sequence"] .md-diagram-panel svg path, #write [lang="sequence"] .md-diagram-panel svg line,
+#write [lang="flow"] .md-diagram-panel svg path[fill="none"] { stroke: var(--m-text-2) !important; }
+#write [lang="sequence"] .md-diagram-panel svg text, #write [lang="sequence"] .md-diagram-panel svg tspan,
+#write [lang="flow"] .md-diagram-panel svg text, #write [lang="flow"] .md-diagram-panel svg tspan { fill: var(--m-text) !important; stroke: none !important; font-family: var(--m-font-text) !important; }
+#write [lang="sequence"] .md-diagram-panel svg marker path, #write [lang="flow"] .md-diagram-panel svg marker path { fill: var(--m-text-2) !important; }
+#write [lang="flow"] .md-diagram-panel svg rect[stroke="none"] { fill: var(--m-surface-2) !important; stroke: none !important; }
+#write [lang="flow"] .md-diagram-panel svg path[fill="none"], #write [lang="sequence"] .md-diagram-panel svg path { stroke-width: 1.25px !important; }
+#write [lang="flow"] .md-diagram-panel svg defs path, #write [lang="flow"] .md-diagram-panel svg marker *, #write [lang="sequence"] .md-diagram-panel svg defs path { fill: var(--m-text-2) !important; stroke: var(--m-text-2) !important; }
 
 /* YAML front matter */
 #write pre.md-meta-block:empty::before { color: var(--m-text-2); }
@@ -656,6 +855,7 @@ kbd {
 .file-node-icon, .file-node-open-state { color: var(--m-text-2); }
 
 .outline-item, .outline-item:hover { border: 0; border-radius: var(--m-radius-s); margin: 0 6px; padding: 3px 8px; }
+.no-collapse-outline .outline-item, .no-collapse-outline .outline-item:hover { margin: 1px 6px 2px; }
 .outline-h1 > .outline-item { padding-left: 8px; }
 .outline-h2 > .outline-item { padding-left: calc(8px + 1em); }
 .outline-h3 > .outline-item { padding-left: calc(8px + 2em); }
@@ -667,6 +867,11 @@ kbd {
 .outline-item-active, .outline-item.outline-item-active { color: var(--m-text); font-weight: 650; background: var(--m-hover-bg); }
 .outline-expander::before { color: var(--m-text-2); }
 .outline-h1 > .outline-item { font-weight: 600; }
+/* No hover underline or arrow swap in the outline (both shifted the label) */
+.outline-label:hover { text-decoration: none; }
+.outline-expander:before { width: 8px; text-align: center; }
+.outline-expander:hover:before { content: "\f125"; }
+.outline-item-open > .outline-item > .outline-expander:before, .outline-item-open > .outline-item > .outline-expander:hover:before { content: "\f123"; }
 
 /* Sidebar search & generic inputs */
 #file-library-search-input, .ty-sidebar-search-panel input, #sidebar-files-menu input,
@@ -775,14 +980,172 @@ footer.ty-footer { border-top: 1px solid var(--m-border); }
    Print / PDF export — always the light palette, black text
    ========================================================================== */
 @media print {
+  /* Print uses the macOS 27 Light palette, so every block keeps its on-screen Light styling */
+  :root {
+    --m-bg: #FFFFFF;
+    --m-surface: #F3F3F5;
+    --m-surface-2: #F5F5F7;
+    --m-zebra: #FAFAFB;
+    --m-hover-bg: #E6E6EB;
+    --m-active-bg: #0064D2;
+    --m-on-accent: #FFFFFF;
+    --m-accent-fill: #0064D2;
+    --m-accent-fill-hover: #0057B7;
+    --m-text: #1D1D1F;
+    --m-text-2: #5E5E63;
+    --m-heading: #111113;
+    --m-md-char: #6A6A6F;
+    --m-link: #0060C7;
+    --m-link-hover: #004A9E;
+    --m-link-underline: rgba(0, 96, 199, 0.45);
+    --m-code-text: #B1221B;
+    --m-border: #E1E1E6;
+    --m-border-strong: #C7C7CC;
+    --m-control-border: #86868B;
+    --m-quote-bar: #86868B;
+    --m-focus: #007AFF;
+    --m-focus-halo: rgba(0, 122, 255, 0.28);
+    --m-caret: #0064D2;
+    --m-select-bg: #B3D7FF;
+    --m-select-text: #1D1D1F;
+    --m-match-bg: #DCEBFF;
+    --m-mark-bg: #FFE27A;
+    --m-mark-text: #1D1D1F;
+    --m-search-bg: #FFE27A;
+    --m-search-text: #1D1D1F;
+    --m-search-current-bg: #FF9F0A;
+    --m-search-current-text: #1D1D1F;
+    --m-scroll-thumb: rgba(0, 0, 0, 0.22);
+    --m-shadow-pop: 0 0 0 0.5px rgba(0,0,0,0.08), 0 10px 32px rgba(0,0,0,0.14);
+    --m-alert-note: #0060C7;
+    --m-alert-tip: #1A7F37;
+    --m-alert-important: #7B3FC4;
+    --m-alert-warning: #9A5B00;
+    --m-alert-caution: #C4261D;
+    --m-chart-1: #0088FF;
+    --m-chart-2: #CB30E0;
+    --m-chart-3: #34C759;
+    --m-chart-4: #FF8D28;
+    --m-chart-5: #FF2D55;
+    --m-chart-6: #00C3D0;
+    --m-diagram-node: var(--m-bg);
+  }
+  #write .md-diagram-panel svg text:not(.slice):not(.row), #write .md-diagram-panel .nodeLabel, #write .md-diagram-panel .label, #write .md-diagram-panel span.edgeLabel { fill: #1d1d1f !important; color: #1d1d1f !important; }
   html { font-size: 11pt; }
-  body, #write { background: #fff !important; color: #1d1d1f !important; }
-  #write { max-width: none; padding: 0; }
-  #write h1, #write h2, #write h3, #write h4, #write h5, #write strong, #write table thead th { color: #1d1d1f !important; }
-  #write a { color: #0058b0 !important; }
-  #write .md-fences, #write code, #write blockquote, #write table thead th, #write pre.md-meta-block { background: #f5f5f7 !important; color: #1d1d1f !important; }
-  #write table tbody tr:nth-child(even) td { background: transparent !important; }
-  .cm-s-inner span { color: #1d1d1f !important; }
+  body, #write { background: var(--m-bg) !important; color: var(--m-text) !important; }
+  /* Typora sets the top/bottom PDF margin (Export > PDF, 16 mm default); the sides come from the theme */
+  #write { max-width: none; padding: 0 44pt !important; }
   #write h2, #write h3, #write h4 { page-break-after: avoid; break-after: avoid; }
   #write pre, #write table, #write img, #write blockquote { page-break-inside: avoid; break-inside: avoid; }
+  #write h5, #write h6 { page-break-after: avoid; break-after: avoid; }
+  #write .md-diagram-panel, #write .md-alert, #write .mathjax-block { page-break-inside: avoid; break-inside: avoid; }
+}
+
+/* ==========================================================================
+   Long content — inline code wraps instead of overflowing the column
+   ========================================================================== */
+#write code { overflow-wrap: anywhere; }
+
+/* Inline HTML tags without browser-default styling that fits the theme */
+#write abbr[title] { text-decoration: underline dotted var(--m-text-2); text-underline-offset: 0.2em; cursor: help; }
+#write ins { text-decoration: underline; text-decoration-color: var(--m-alert-tip); text-underline-offset: 0.2em; }
+#write samp { font-family: var(--m-font-mono); font-size: 0.875em; }
+#write var { font-style: italic; color: var(--m-text); }
+#write q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+#write small { font-size: 0.8125em; color: var(--m-text-2); }
+
+/* Right-to-left paragraphs: quote bar, callout bar and list indent follow the text */
+#write [dir="rtl"] blockquote, #write blockquote[dir="rtl"] { border-left: 0; border-right: 3px solid var(--m-quote-bar); }
+#write [dir="rtl"] ul, #write [dir="rtl"] ol, #write ul[dir="rtl"], #write ol[dir="rtl"] { padding-left: 0; padding-right: 1.6em; }
+
+/* Mindmap and timeline branches cycle through the six chart colours */
+#write .md-diagram-panel .section--1 > rect, #write .md-diagram-panel .section--1 > path, #write .md-diagram-panel .section--1 > circle, #write .md-diagram-panel .section--1 > polygon, #write .md-diagram-panel .section--1 rect, #write .md-diagram-panel .section--1 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-1) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-1) !important; }
+#write .md-diagram-panel .section-edge--1 { stroke: var(--m-chart-1) !important; }
+#write .md-diagram-panel .section-0 > rect, #write .md-diagram-panel .section-0 > path, #write .md-diagram-panel .section-0 > circle, #write .md-diagram-panel .section-0 > polygon, #write .md-diagram-panel .section-0 rect, #write .md-diagram-panel .section-0 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-2) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-2) !important; }
+#write .md-diagram-panel .section-edge-0 { stroke: var(--m-chart-2) !important; }
+#write .md-diagram-panel .section-1 > rect, #write .md-diagram-panel .section-1 > path, #write .md-diagram-panel .section-1 > circle, #write .md-diagram-panel .section-1 > polygon, #write .md-diagram-panel .section-1 rect, #write .md-diagram-panel .section-1 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-3) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-3) !important; }
+#write .md-diagram-panel .section-edge-1 { stroke: var(--m-chart-3) !important; }
+#write .md-diagram-panel .section-2 > rect, #write .md-diagram-panel .section-2 > path, #write .md-diagram-panel .section-2 > circle, #write .md-diagram-panel .section-2 > polygon, #write .md-diagram-panel .section-2 rect, #write .md-diagram-panel .section-2 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-4) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-4) !important; }
+#write .md-diagram-panel .section-edge-2 { stroke: var(--m-chart-4) !important; }
+#write .md-diagram-panel .section-3 > rect, #write .md-diagram-panel .section-3 > path, #write .md-diagram-panel .section-3 > circle, #write .md-diagram-panel .section-3 > polygon, #write .md-diagram-panel .section-3 rect, #write .md-diagram-panel .section-3 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-5) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-5) !important; }
+#write .md-diagram-panel .section-edge-3 { stroke: var(--m-chart-5) !important; }
+#write .md-diagram-panel .section-4 > rect, #write .md-diagram-panel .section-4 > path, #write .md-diagram-panel .section-4 > circle, #write .md-diagram-panel .section-4 > polygon, #write .md-diagram-panel .section-4 rect, #write .md-diagram-panel .section-4 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-6) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-6) !important; }
+#write .md-diagram-panel .section-edge-4 { stroke: var(--m-chart-6) !important; }
+#write .md-diagram-panel .section-5 > rect, #write .md-diagram-panel .section-5 > path, #write .md-diagram-panel .section-5 > circle, #write .md-diagram-panel .section-5 > polygon, #write .md-diagram-panel .section-5 rect, #write .md-diagram-panel .section-5 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-1) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-1) !important; }
+#write .md-diagram-panel .section-edge-5 { stroke: var(--m-chart-1) !important; }
+#write .md-diagram-panel .section-6 > rect, #write .md-diagram-panel .section-6 > path, #write .md-diagram-panel .section-6 > circle, #write .md-diagram-panel .section-6 > polygon, #write .md-diagram-panel .section-6 rect, #write .md-diagram-panel .section-6 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-2) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-2) !important; }
+#write .md-diagram-panel .section-edge-6 { stroke: var(--m-chart-2) !important; }
+#write .md-diagram-panel .section-7 > rect, #write .md-diagram-panel .section-7 > path, #write .md-diagram-panel .section-7 > circle, #write .md-diagram-panel .section-7 > polygon, #write .md-diagram-panel .section-7 rect, #write .md-diagram-panel .section-7 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-3) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-3) !important; }
+#write .md-diagram-panel .section-edge-7 { stroke: var(--m-chart-3) !important; }
+#write .md-diagram-panel .section-8 > rect, #write .md-diagram-panel .section-8 > path, #write .md-diagram-panel .section-8 > circle, #write .md-diagram-panel .section-8 > polygon, #write .md-diagram-panel .section-8 rect, #write .md-diagram-panel .section-8 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-4) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-4) !important; }
+#write .md-diagram-panel .section-edge-8 { stroke: var(--m-chart-4) !important; }
+#write .md-diagram-panel .section-9 > rect, #write .md-diagram-panel .section-9 > path, #write .md-diagram-panel .section-9 > circle, #write .md-diagram-panel .section-9 > polygon, #write .md-diagram-panel .section-9 rect, #write .md-diagram-panel .section-9 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-5) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-5) !important; }
+#write .md-diagram-panel .section-edge-9 { stroke: var(--m-chart-5) !important; }
+#write .md-diagram-panel .section-10 > rect, #write .md-diagram-panel .section-10 > path, #write .md-diagram-panel .section-10 > circle, #write .md-diagram-panel .section-10 > polygon, #write .md-diagram-panel .section-10 rect, #write .md-diagram-panel .section-10 path.node-bkg { fill: color-mix(in srgb, var(--m-chart-6) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-6) !important; }
+#write .md-diagram-panel .section-edge-10 { stroke: var(--m-chart-6) !important; }
+#write .md-diagram-panel [class*="section-"] text, #write .md-diagram-panel [class*="section-"] .nodeLabel, #write .md-diagram-panel .timeline-node text { fill: var(--m-text) !important; color: var(--m-text) !important; }
+#write .md-diagram-panel .lineWrapper line { stroke: var(--m-text-2) !important; }
+#write .md-diagram-panel .lineWrapper marker path, #write .md-diagram-panel marker#arrowhead path { fill: var(--m-text-2) !important; }
+#write .md-diagram-panel .section--1 line { stroke: var(--m-chart-1) !important; } #write .md-diagram-panel .section-0 line { stroke: var(--m-chart-2) !important; } #write .md-diagram-panel .section-1 line { stroke: var(--m-chart-3) !important; } #write .md-diagram-panel .section-2 line { stroke: var(--m-chart-4) !important; } #write .md-diagram-panel .section-3 line { stroke: var(--m-chart-5) !important; } #write .md-diagram-panel .section-4 line { stroke: var(--m-chart-6) !important; } #write .md-diagram-panel .section-5 line { stroke: var(--m-chart-1) !important; } #write .md-diagram-panel .section-6 line { stroke: var(--m-chart-2) !important; } #write .md-diagram-panel .section-7 line { stroke: var(--m-chart-3) !important; } #write .md-diagram-panel .section-8 line { stroke: var(--m-chart-4) !important; } #write .md-diagram-panel .section-9 line { stroke: var(--m-chart-5) !important; } #write .md-diagram-panel .section-10 line { stroke: var(--m-chart-6) !important; }
+/* gitGraph: branches and commits use the chart colours */
+#write .md-diagram-panel .branch { stroke: var(--m-border-strong) !important; }
+#write .md-diagram-panel .commit-label-bkg { fill: var(--m-surface-2) !important; opacity: 1 !important; stroke: var(--m-border) !important; }
+#write .md-diagram-panel .commit-label { fill: var(--m-text-2) !important; }
+#write .md-diagram-panel .commit-merge, #write .md-diagram-panel .commit-reverse { fill: var(--m-bg) !important; }
+#write .md-diagram-panel .arrow0 { stroke: var(--m-chart-1) !important; } #write .md-diagram-panel .commit0 { fill: var(--m-chart-1) !important; stroke: var(--m-chart-1) !important; } #write .md-diagram-panel .branchLabelBkg.label0 { fill: var(--m-chart-1) !important; stroke: none !important; } #write .md-diagram-panel .branch-label0 text, #write .md-diagram-panel .branch-label0 tspan { fill: #FFFFFF !important; }
+#write .md-diagram-panel .arrow1 { stroke: var(--m-chart-2) !important; } #write .md-diagram-panel .commit1 { fill: var(--m-chart-2) !important; stroke: var(--m-chart-2) !important; } #write .md-diagram-panel .branchLabelBkg.label1 { fill: var(--m-chart-2) !important; stroke: none !important; } #write .md-diagram-panel .branch-label1 text, #write .md-diagram-panel .branch-label1 tspan { fill: #FFFFFF !important; }
+#write .md-diagram-panel .arrow2 { stroke: var(--m-chart-3) !important; } #write .md-diagram-panel .commit2 { fill: var(--m-chart-3) !important; stroke: var(--m-chart-3) !important; } #write .md-diagram-panel .branchLabelBkg.label2 { fill: var(--m-chart-3) !important; stroke: none !important; } #write .md-diagram-panel .branch-label2 text, #write .md-diagram-panel .branch-label2 tspan { fill: #FFFFFF !important; }
+#write .md-diagram-panel .arrow3 { stroke: var(--m-chart-4) !important; } #write .md-diagram-panel .commit3 { fill: var(--m-chart-4) !important; stroke: var(--m-chart-4) !important; } #write .md-diagram-panel .branchLabelBkg.label3 { fill: var(--m-chart-4) !important; stroke: none !important; } #write .md-diagram-panel .branch-label3 text, #write .md-diagram-panel .branch-label3 tspan { fill: #FFFFFF !important; }
+#write .md-diagram-panel .arrow4 { stroke: var(--m-chart-5) !important; } #write .md-diagram-panel .commit4 { fill: var(--m-chart-5) !important; stroke: var(--m-chart-5) !important; } #write .md-diagram-panel .branchLabelBkg.label4 { fill: var(--m-chart-5) !important; stroke: none !important; } #write .md-diagram-panel .branch-label4 text, #write .md-diagram-panel .branch-label4 tspan { fill: #FFFFFF !important; }
+#write .md-diagram-panel .arrow5 { stroke: var(--m-chart-6) !important; } #write .md-diagram-panel .commit5 { fill: var(--m-chart-6) !important; stroke: var(--m-chart-6) !important; } #write .md-diagram-panel .branchLabelBkg.label5 { fill: var(--m-chart-6) !important; stroke: none !important; } #write .md-diagram-panel .branch-label5 text, #write .md-diagram-panel .branch-label5 tspan { fill: #FFFFFF !important; }
+#write .md-diagram-panel .arrow6 { stroke: var(--m-chart-1) !important; } #write .md-diagram-panel .commit6 { fill: var(--m-chart-1) !important; stroke: var(--m-chart-1) !important; } #write .md-diagram-panel .branchLabelBkg.label6 { fill: var(--m-chart-1) !important; stroke: none !important; } #write .md-diagram-panel .branch-label6 text, #write .md-diagram-panel .branch-label6 tspan { fill: #FFFFFF !important; }
+#write .md-diagram-panel .arrow7 { stroke: var(--m-chart-2) !important; } #write .md-diagram-panel .commit7 { fill: var(--m-chart-2) !important; stroke: var(--m-chart-2) !important; } #write .md-diagram-panel .branchLabelBkg.label7 { fill: var(--m-chart-2) !important; stroke: none !important; } #write .md-diagram-panel .branch-label7 text, #write .md-diagram-panel .branch-label7 tspan { fill: #FFFFFF !important; }
+/* Sankey: no multiply blend (it vanishes on dark), theme node colours and labels */
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .link { mix-blend-mode: normal !important; }
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .links { stroke-opacity: 0.4; }
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .node-labels text { fill: var(--m-text) !important; }
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .nodes > g:nth-child(6n+1) rect { fill: var(--m-chart-1) !important; }
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .nodes > g:nth-child(6n+2) rect { fill: var(--m-chart-2) !important; }
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .nodes > g:nth-child(6n+3) rect { fill: var(--m-chart-3) !important; }
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .nodes > g:nth-child(6n+4) rect { fill: var(--m-chart-4) !important; }
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .nodes > g:nth-child(6n+5) rect { fill: var(--m-chart-5) !important; }
+#write .md-diagram-panel svg[aria-roledescription="sankey"] .nodes > g:nth-child(6n+6) rect { fill: var(--m-chart-6) !important; }
+/* C4: boxes like the other diagram nodes, tinted with the accent */
+#write .md-diagram-panel svg[aria-roledescription="c4"] rect:not([fill="none"]) { fill: color-mix(in srgb, var(--m-chart-1) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-1) !important; }
+#write .md-diagram-panel svg[aria-roledescription="c4"] text { fill: var(--m-text) !important; }
+#write .md-diagram-panel svg[aria-roledescription="c4"] text[font-style="italic"] { font-size: 9px !important; font-style: normal !important; font-weight: 500; fill: var(--m-text) !important; }
+#write .md-diagram-panel svg[aria-roledescription="c4"] line, #write .md-diagram-panel svg[aria-roledescription="c4"] path { stroke: var(--m-text-2) !important; }
+/* js-sequence: no dark backing box behind actor names */
+#write [lang="sequence"] .md-diagram-panel svg rect[stroke="none"] { fill: transparent !important; stroke: none !important; }
+/* XY chart: no white card, theme text and series colours */
+#write .md-diagram-panel g.main > rect.background { fill: transparent !important; }
+#write .md-diagram-panel g.chart-title text, #write .md-diagram-panel g.left-axis text, #write .md-diagram-panel g.bottom-axis text, #write .md-diagram-panel g.top-axis text, #write .md-diagram-panel g.right-axis text { fill: var(--m-text-2) !important; }
+#write .md-diagram-panel g.chart-title text { fill: var(--m-text) !important; }
+#write .md-diagram-panel g.left-axis path, #write .md-diagram-panel g.bottom-axis path, #write .md-diagram-panel g.top-axis path, #write .md-diagram-panel g.right-axis path { stroke: var(--m-border-strong) !important; }
+#write .md-diagram-panel g.bar-plot-0 rect { fill: var(--m-chart-1) !important; } #write .md-diagram-panel g.line-plot-0 path { stroke: var(--m-chart-1) !important; stroke-width: 2px; }
+#write .md-diagram-panel g.bar-plot-1 rect { fill: var(--m-chart-2) !important; } #write .md-diagram-panel g.line-plot-1 path { stroke: var(--m-chart-2) !important; stroke-width: 2px; }
+#write .md-diagram-panel g.bar-plot-2 rect { fill: var(--m-chart-3) !important; } #write .md-diagram-panel g.line-plot-2 path { stroke: var(--m-chart-3) !important; stroke-width: 2px; }
+#write .md-diagram-panel g.bar-plot-3 rect { fill: var(--m-chart-4) !important; } #write .md-diagram-panel g.line-plot-3 path { stroke: var(--m-chart-4) !important; stroke-width: 2px; }
+#write .md-diagram-panel g.bar-plot-4 rect { fill: var(--m-chart-5) !important; } #write .md-diagram-panel g.line-plot-4 path { stroke: var(--m-chart-5) !important; stroke-width: 2px; }
+#write .md-diagram-panel g.bar-plot-5 rect { fill: var(--m-chart-6) !important; } #write .md-diagram-panel g.line-plot-5 path { stroke: var(--m-chart-6) !important; stroke-width: 2px; }
+
+/* ==========================================================================
+   macOS accessibility display settings
+   ========================================================================== */
+/* Increase Contrast: lines and secondary text step up to the strong values */
+@media (prefers-contrast: more) {
+  :root {
+    --m-border: var(--m-border-strong);
+    --m-text-2: var(--m-text);
+    --m-link-underline: currentColor;
+  }
+  #write a { text-decoration-thickness: 2px; }
+}
+/* Reduce Motion: no rotating chevrons or fades */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; scroll-behavior: auto !important; }
+}
+/* Reduce Transparency: solid fills instead of blur */
+@media (prefers-reduced-transparency: reduce) {
+  #write .md-image-btn { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(0, 0, 0, 0.85); }
 }
