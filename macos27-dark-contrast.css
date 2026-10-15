@@ -536,9 +536,9 @@ body .md-notification-detail { color: var(--m-text-2); }
 .mac-seamless-mode #md-notification { padding-top: 0; }
 .mac-seamless-mode .md-notification-container, .unibody-window .md-notification-container { padding-top: calc(var(--title-bar-height, 28px) + 8px); }
 body #md-notification { position: relative; top: 0; left: auto; right: auto; width: 100%; min-height: 40px; }
-body #md-notification:before { position: absolute; top: 50%; left: 16px; margin: 0; transform: translateY(-50%); color: var(--m-text-2); }
+body #md-notification:before, .mac-seamless-mode #md-notification:before { padding-top: 0; position: absolute; top: 0; bottom: 0; height: auto; display: flex; align-items: center; left: 16px; margin: 0; transform: none; color: var(--m-text-2); }
 body #md-notification p { margin: 10px 0; padding: 0 64px 0 40px; }
-body #md-notification .typora-export-spinner { margin-top: 0; top: 50%; right: 16px; height: 14px; transform: translateY(-50%); }
+body #md-notification .typora-export-spinner { margin-top: 0; top: 50%; height: 14px; transform: translateY(50%); }
 body #md-notification .close-btn { width: auto; height: 24px; top: calc(50% - 12px); right: 12px; margin: 0; padding: 0 10px; font-size: 12px; line-height: 22px; color: var(--m-text-2); background: transparent; border: 1px solid var(--m-border-strong); border-radius: var(--m-radius-s); }
 body #md-notification .close-btn:hover { color: var(--m-text); background: var(--m-hover-bg); }
 
