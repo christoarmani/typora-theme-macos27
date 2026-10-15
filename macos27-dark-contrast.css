@@ -572,7 +572,7 @@ body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--
 #write .md-rawblock-container { color: var(--m-text); background: transparent; border-radius: var(--m-radius-m); }
 #write .md-math-block > .md-rawblock-container { background: var(--m-surface-2); }
 /* HTML blocks: hover/edit card gets even padding; negative margin keeps content in place */
-#write .md-htmlblock > .md-rawblock-container { padding: 0.75rem; margin: -0.75rem 0; }
+#write .md-htmlblock > .md-rawblock-container { padding: 0.75rem; margin: -0.75rem; }
 #write .md-htmlblock-container > :first-child { margin-top: 0; }
 #write .md-htmlblock-container > :last-child, #write .md-htmlblock-container details > :last-child, #write .md-htmlblock-container details:not([open]) > summary { margin-bottom: 0; }
 #write .md-rawblock:hover > .md-rawblock-container, #write .md-rawblock-on-edit > .md-rawblock-container {
@@ -593,8 +593,8 @@ body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--
 #write details > :not(summary) { margin-left: 1.15em; }
 #write details[open] > summary { margin-bottom: 0.5em; }
 /* Media in HTML blocks keeps its own shape */
-#write .md-htmlblock iframe, #write .md-htmlblock video { display: block; margin: 0 auto; max-width: 100%; border-radius: var(--m-radius-m); }
-#write .md-htmlblock audio { display: block; width: 100%; }
+#write .md-htmlblock iframe, #write .md-htmlblock video, #write > iframe, #write > video { display: block; margin: 0 auto; max-width: 100%; border-radius: var(--m-radius-m); }
+#write .md-htmlblock audio, #write > audio { display: block; width: 100%; }
 #write mjx-container, #write .MathJax_SVG { color: var(--m-text); }
 
 /* Mermaid / flowchart / sequence: Typora picks the matching mermaid theme */
@@ -615,7 +615,9 @@ body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--
 #write .md-diagram-panel rect.note, #write .md-diagram-panel .note { fill: color-mix(in srgb, var(--m-chart-1) 14%, var(--m-surface)) !important; stroke: color-mix(in srgb, var(--m-chart-1) 45%, transparent) !important; }
 #write .md-diagram-panel .edgeLabel, #write .md-diagram-panel .edgeLabel p, #write .md-diagram-panel .labelBkg { background-color: var(--m-surface-2) !important; color: var(--m-text) !important; }
 #write .md-diagram-panel .edgeLabel rect { fill: var(--m-surface-2) !important; opacity: 1 !important; }
-#write .md-diagram-panel text.actor { transform: translateY(0.3em); transform-box: fill-box; }
+#write .md-diagram-panel foreignObject p, #write .md-diagram-panel foreignObject span { white-space: inherit !important; }
+#write .md-diagram-panel foreignObject p { color: inherit !important; }
+#write .md-diagram-panel text.actor, #write .md-diagram-panel text.actor tspan { dominant-baseline: central; }
 /* Pie */
 #write .md-diagram-panel .pieCircle:nth-of-type(6n+1), #write .md-diagram-panel .legend:nth-of-type(6n+1) rect { fill: var(--m-chart-1) !important; stroke: var(--m-chart-1) !important; }
 #write .md-diagram-panel .pieCircle:nth-of-type(6n+2), #write .md-diagram-panel .legend:nth-of-type(6n+2) rect { fill: var(--m-chart-2) !important; stroke: var(--m-chart-2) !important; }
@@ -632,7 +634,7 @@ body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--
 #write .md-diagram-panel .task1, #write .md-diagram-panel .active1, #write .md-diagram-panel .done1, #write .md-diagram-panel .crit1 { fill: var(--m-chart-2) !important; stroke: var(--m-chart-2) !important; }
 #write .md-diagram-panel .task2, #write .md-diagram-panel .active2, #write .md-diagram-panel .done2, #write .md-diagram-panel .crit2 { fill: var(--m-chart-3) !important; stroke: var(--m-chart-3) !important; }
 #write .md-diagram-panel .task3, #write .md-diagram-panel .active3, #write .md-diagram-panel .done3, #write .md-diagram-panel .crit3 { fill: var(--m-chart-4) !important; stroke: var(--m-chart-4) !important; }
-#write .md-diagram-panel .section0, #write .md-diagram-panel .section2 { fill: color-mix(in srgb, var(--m-chart-1) 7%, transparent) !important; }
+#write .md-diagram-panel .section0, #write .md-diagram-panel .section2 { fill: color-mix(in srgb, var(--m-chart-1) 7%, transparent) !important; opacity: 1 !important; }
 #write .md-diagram-panel .section1, #write .md-diagram-panel .section3 { fill: transparent !important; }
 #write .md-diagram-panel .taskText, #write .md-diagram-panel .taskTextOutsideRight, #write .md-diagram-panel .taskTextOutsideLeft { fill: var(--m-text) !important; }
 #write .md-diagram-panel .taskText { fill: #FFFFFF !important; font-weight: 600; }
@@ -642,16 +644,16 @@ body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--
 #write .md-diagram-panel .grid path { stroke: none !important; }
 #write .md-diagram-panel .today { stroke: var(--m-chart-5) !important; }
 /* flowchart.js and js-sequence (Raphael SVG), matched by fence language */
-#write [lang="sequence"] .md-diagram-panel svg rect, #write [lang="flow"] .md-diagram-panel svg rect,
-#write [lang="flow"] .md-diagram-panel svg path:not([fill="none"]) { fill: var(--m-diagram-node) !important; stroke: var(--m-border-strong) !important; stroke-width: 1px !important; }
-#write [lang="sequence"] .md-diagram-panel svg path, #write [lang="sequence"] .md-diagram-panel svg line,
-#write [lang="flow"] .md-diagram-panel svg path[fill="none"] { stroke: var(--m-text-2) !important; }
-#write [lang="sequence"] .md-diagram-panel svg text, #write [lang="sequence"] .md-diagram-panel svg tspan,
-#write [lang="flow"] .md-diagram-panel svg text, #write [lang="flow"] .md-diagram-panel svg tspan { fill: var(--m-text) !important; stroke: none !important; font-family: var(--m-font-text) !important; }
-#write [lang="sequence"] .md-diagram-panel svg marker path, #write [lang="flow"] .md-diagram-panel svg marker path { fill: var(--m-text-2) !important; }
-#write [lang="flow"] .md-diagram-panel svg rect[stroke="none"] { fill: var(--m-surface-2) !important; stroke: none !important; }
-#write [lang="flow"] .md-diagram-panel svg path[fill="none"], #write [lang="sequence"] .md-diagram-panel svg path { stroke-width: 1.25px !important; }
-#write [lang="flow"] .md-diagram-panel svg defs path, #write [lang="flow"] .md-diagram-panel svg marker *, #write [lang="sequence"] .md-diagram-panel svg defs path { fill: var(--m-text-2) !important; stroke: var(--m-text-2) !important; }
+#write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg rect, #write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg rect,
+#write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg path:not([fill="none"]) { fill: var(--m-diagram-node) !important; stroke: var(--m-border-strong) !important; stroke-width: 1px !important; }
+#write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg path, #write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg line,
+#write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg path[fill="none"] { stroke: var(--m-text-2) !important; }
+#write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg text, #write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg tspan,
+#write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg text, #write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg tspan { fill: var(--m-text) !important; stroke: none !important; font-family: var(--m-font-text) !important; }
+#write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg marker path, #write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg marker path { fill: var(--m-text-2) !important; }
+#write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg rect[stroke="none"] { fill: var(--m-surface-2) !important; stroke: none !important; }
+#write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg path[fill="none"], #write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg path { stroke-width: 1.25px !important; }
+#write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg defs path, #write :is([lang="flow"] .md-diagram-panel, .md-diagram-panel[lang="flow"]) svg marker *, #write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg defs path { fill: var(--m-text-2) !important; stroke: var(--m-text-2) !important; }
 
 /* YAML front matter */
 #write pre.md-meta-block:empty::before { color: var(--m-text-2); }
@@ -1020,8 +1022,28 @@ footer.ty-footer { border-top: 1px solid var(--m-border); }
 #write .md-diagram-panel svg[aria-roledescription="c4"] text { fill: var(--m-text) !important; }
 #write .md-diagram-panel svg[aria-roledescription="c4"] text[font-style="italic"] { font-size: 9px !important; font-style: normal !important; font-weight: 500; fill: var(--m-text) !important; }
 #write .md-diagram-panel svg[aria-roledescription="c4"] line, #write .md-diagram-panel svg[aria-roledescription="c4"] path { stroke: var(--m-text-2) !important; }
+/* Journey, architecture, timeline title: theme colours, so exported HTML follows Light/Dark (Mermaid bakes the export-time mode into the SVG) */
+#write .md-diagram-panel svg[aria-roledescription="journey"] text, #write .md-diagram-panel svg[aria-roledescription="architecture"] text, #write .md-diagram-panel svg[aria-roledescription="timeline"] > text { fill: var(--m-text) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] rect.task, #write .md-diagram-panel svg[aria-roledescription="journey"] rect.journey-section { fill: color-mix(in srgb, var(--m-chart-1) 22%, var(--m-surface-2)) !important; stroke: var(--m-chart-1) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] circle.actor-0 { fill: var(--m-chart-1) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] circle.actor-1 { fill: var(--m-chart-2) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] circle.actor-2 { fill: var(--m-chart-3) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] circle.actor-3 { fill: var(--m-chart-4) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] circle.actor-4 { fill: var(--m-chart-5) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] circle.actor-5 { fill: var(--m-chart-6) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] text { font-family: var(--mermaid-font-family) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] line { stroke: var(--m-text-2) !important; }
+#write .md-diagram-panel svg[aria-roledescription="journey"] marker path { fill: var(--m-text-2) !important; stroke: var(--m-text-2) !important; }
+/* Quadrant chart: Mermaid ignores the base theme here (default lavender, broken point colour) */
+#write .md-diagram-panel svg[aria-roledescription="quadrantChart"] text { fill: var(--m-text) !important; }
+#write .md-diagram-panel svg[aria-roledescription="quadrantChart"] .quadrant:nth-child(1) rect { fill: color-mix(in srgb, var(--m-chart-1) 18%, var(--m-surface-2)) !important; }
+#write .md-diagram-panel svg[aria-roledescription="quadrantChart"] .quadrant:nth-child(2) rect { fill: color-mix(in srgb, var(--m-chart-2) 18%, var(--m-surface-2)) !important; }
+#write .md-diagram-panel svg[aria-roledescription="quadrantChart"] .quadrant:nth-child(3) rect { fill: color-mix(in srgb, var(--m-chart-3) 18%, var(--m-surface-2)) !important; }
+#write .md-diagram-panel svg[aria-roledescription="quadrantChart"] .quadrant:nth-child(4) rect { fill: color-mix(in srgb, var(--m-chart-4) 18%, var(--m-surface-2)) !important; }
+#write .md-diagram-panel svg[aria-roledescription="quadrantChart"] .border line { stroke: var(--m-border-strong) !important; }
+#write .md-diagram-panel svg[aria-roledescription="quadrantChart"] .data-point circle { fill: var(--m-chart-1) !important; stroke: var(--m-bg) !important; }
 /* js-sequence: no dark backing box behind actor names */
-#write [lang="sequence"] .md-diagram-panel svg rect[stroke="none"] { fill: transparent !important; stroke: none !important; }
+#write :is([lang="sequence"] .md-diagram-panel, .md-diagram-panel[lang="sequence"]) svg rect[stroke="none"] { fill: transparent !important; stroke: none !important; }
 /* XY chart: no white card, theme text and series colours */
 #write .md-diagram-panel g.main > rect.background { fill: transparent !important; }
 #write .md-diagram-panel g.chart-title text, #write .md-diagram-panel g.left-axis text, #write .md-diagram-panel g.bottom-axis text, #write .md-diagram-panel g.top-axis text, #write .md-diagram-panel g.right-axis text { fill: var(--m-text-2) !important; }
