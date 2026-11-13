@@ -17,7 +17,7 @@
   --mermaid-background: var(--m-bg);
   --bg-color: #FFFFFF;
   --text-color: #1D1D1F;
-  --side-bar-bg-color: #F7F7F7;
+  --side-bar-bg-color: #F5F5F7;
   --control-text-color: #636363;
   --control-text-hover-bg-color: #EDEDED;
   --item-hover-bg-color: #EDEDED;
@@ -25,7 +25,7 @@
   --active-file-bg-color: #0071E3;
   --active-file-text-color: #FFFFFF;
   --active-file-border-color: #0071E3;
-  --window-border: 1px solid #D6D6D6;
+  --window-border: 1px solid #D2D2D7;
   --primary-color: #0071E3;
   --primary-btn-border-color: #0071E3;
   --primary-btn-text-color: #FFFFFF;
@@ -36,13 +36,13 @@
   --heading-char-color: #666666;
   --search-select-bg-color: #FF9F0A;
   --search-select-text-color: #000000;
-  --rawblock-edit-panel-bd: #F7F7F7;
+  --rawblock-edit-panel-bd: #F5F5F7;
   --blur-text-color: #636363;
-  --code-block-bg-color: #F7F7F7;
+  --code-block-bg-color: #F5F5F7;
   --drag-placeholder-color: #636363;
   --m-bg: #FFFFFF;
-  --m-surface: #F7F7F7;
-  --m-surface-2: #F7F7F7;
+  --m-surface: #F5F5F7;
+  --m-surface-2: #F5F5F7;
   --m-zebra: #FAFAFA;
   --m-hover-bg: #EDEDED;
   --m-active-bg: #0071E3;
@@ -57,7 +57,7 @@
   --m-link-hover: #004F9E;
   --m-link-underline: rgba(0, 102, 204, 0.4);
   --m-code-text: #8E24AA;
-  --m-border: #D6D6D6;
+  --m-border: #D2D2D7;
   --m-border-strong: #CCCCCC;
   --m-control-border: #888888;
   --m-quote-bar: #888888;
@@ -119,7 +119,7 @@
     --active-file-bg-color: #0071E3;
     --active-file-text-color: #FFFFFF;
     --active-file-border-color: #0071E3;
-    --window-border: 1px solid #333333;
+    --window-border: 1px solid #424245;
     --primary-color: #0071E3;
     --primary-btn-border-color: #0071E3;
     --primary-btn-text-color: #FFFFFF;
@@ -151,7 +151,7 @@
     --m-link-hover: #6BB8FF;
     --m-link-underline: rgba(41, 151, 255, 0.5);
     --m-code-text: #DA8FFF;
-    --m-border: #333333;
+    --m-border: #424245;
     --m-border-strong: #575757;
     --m-control-border: #8A8A8A;
     --m-quote-bar: #8A8A8A;
@@ -306,6 +306,7 @@ kbd {
   border-bottom-width: 2px;
   border-radius: var(--m-radius-s);
   vertical-align: 0.05em;
+  box-shadow: none; /* Typora adds a white inset ring */
 }
 
 /* ==========================================================================
@@ -397,7 +398,7 @@ kbd {
 #write code, #write tt, #write .md-fences, #write .CodeMirror, #typora-source .CodeMirror {
   font-family: var(--monospace);
 }
-#write code {
+#write code, #write tt {
   font-size: 0.875em;
   padding: 0.12em 0.38em;
   color: var(--m-code-text);
@@ -406,6 +407,19 @@ kbd {
   border-radius: var(--m-radius-s);
 }
 #write a code { color: inherit; }
+/* Raw <pre> in HTML blocks: same card as fenced code */
+#write .md-htmlblock pre {
+  font-family: var(--monospace);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  padding: 0.9rem 1.1rem;
+  overflow: auto;
+  color: var(--m-text);
+  background: var(--m-surface-2);
+  border: 1px solid var(--m-border);
+  border-radius: var(--m-radius-m);
+}
+#write .md-htmlblock pre code { padding: 0; font-size: inherit; color: inherit; background: none; border: 0; }
 
 #write .md-fences, #write pre.md-fences {
   font-size: 0.8125rem;
@@ -823,7 +837,15 @@ body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--
 #typora-source .cm-quote { color: var(--m-text-2); }
 #typora-source .cm-link { color: var(--m-link); }
 #typora-source .cm-string.cm-url { color: var(--m-link); }
-#typora-source .cm-comment { color: var(--s-comment); }
+/* Inline code and plain code blocks: same colour as inline code in the editor */
+#typora-source .cm-comment, #typora-source .cm-code { color: var(--m-code-text); }
+#typora-source .cm-s-inner .cm-comment, #typora-source .cm-s-inner.cm-comment { color: var(--s-comment); }
+/* HTML tags and the rest of Typora's default source colours */
+#typora-source .cm-tag { color: var(--s-keyword); }
+#typora-source .cm-attribute { color: var(--s-attribute); }
+#typora-source .cm-string { color: var(--s-string); }
+#typora-source .cm-number { color: var(--s-number); }
+#typora-source .cm-property { color: var(--s-variable); }
 #typora-source .cm-variable-2 { color: var(--m-text); }
 #typora-source .cm-variable-3 { color: var(--m-text); }
 #typora-source .cm-keyword { color: var(--s-keyword); }
@@ -838,9 +860,9 @@ body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--
   font-family: var(--m-font-text);
   color: var(--m-text);
   background: var(--m-surface);
-  border-right: 1px solid var(--m-border);
+  border-right: 1px solid color-mix(in srgb, var(--m-border) 50%, transparent);
 }
-#typora-sidebar .sidebar-tabs { border-bottom: 1px solid var(--m-border); }
+#typora-sidebar .sidebar-tabs { border-bottom: 1px solid color-mix(in srgb, var(--m-border) 50%, transparent); }
 #typora-sidebar .sidebar-tab { color: var(--m-text-2); font-size: 0.8125rem; font-weight: 500; }
 #typora-sidebar .sidebar-tab.active { color: var(--m-text); border-bottom: 2px solid var(--m-accent-fill); }
 .sidebar-content-content, .file-list-item, .file-node-content, .outline-item { color: var(--m-text); }
@@ -870,7 +892,18 @@ body pre.md-fences-advanced.md-focus .md-fences-adv-panel { border-color: var(--
 .outline-h6 > .outline-item { padding-left: calc(8px + 5em); }
 #outline-content, #file-library-tree { padding-top: 10px; }
 .outline-item:hover { background: var(--m-hover-bg); color: var(--m-text); }
-.outline-item-active, .outline-item.outline-item-active { color: var(--m-text); font-weight: 650; background: var(--m-hover-bg); }
+.outline-item-active, .outline-item.outline-item-active, .outline-item-active:hover, .outline-item.outline-item-active:hover { color: var(--m-on-accent); font-weight: 600; background: var(--m-active-bg); }
+.outline-item-active .outline-expander::before { color: var(--m-on-accent); }
+/* Outline popover: title, rows and edges on one 14px text margin */
+#toc-dropmenu { padding: 0; }
+#toc-dropmenu .outline-title { display: block; float: none; line-height: 1.3; margin: 0; padding: 10px 14px 8px; font-size: 0.8125rem; font-weight: 600; color: var(--m-text-2); }
+#toc-dropmenu .outline-title-wrapper { flex: none; display: flex; align-items: center; padding: 0; }
+#toc-dropmenu .outline-title { flex: 1; }
+/* Pin button (shown on hover) sits in the title row instead of wrapping under it */
+#toc-dropmenu #pin-outline-btn { float: none; position: static; flex: none; margin: 0 8px 0 0; padding: 3px 5px; font-size: 14px; line-height: 1; color: var(--m-text-2); border: 0; border-radius: var(--m-radius-s); background: none; }
+#toc-dropmenu #pin-outline-btn:hover { color: var(--m-text); background: var(--m-hover-bg); }
+#toc-dropmenu .divider { flex: none; height: 0; margin: 0; border-top: 1px solid var(--m-border); background: none; opacity: 1; }
+#toc-dropmenu .outline-content { padding: 6px 0; }
 .outline-expander::before { color: var(--m-text-2); }
 .outline-h1 > .outline-item { font-weight: 600; }
 /* No hover underline or arrow swap in the outline (both shifted the label) */
@@ -999,8 +1032,8 @@ footer.ty-footer { border-top: 1px solid var(--m-border); }
   /* Print uses the macOS 27 Light palette, so every block keeps its on-screen Light styling */
   :root {
     --m-bg: #FFFFFF;
-    --m-surface: #F7F7F7;
-    --m-surface-2: #F7F7F7;
+    --m-surface: #F5F5F7;
+    --m-surface-2: #F5F5F7;
     --m-zebra: #FAFAFA;
     --m-hover-bg: #EDEDED;
     --m-active-bg: #0071E3;
@@ -1015,7 +1048,7 @@ footer.ty-footer { border-top: 1px solid var(--m-border); }
     --m-link-hover: #004F9E;
     --m-link-underline: rgba(0, 102, 204, 0.4);
     --m-code-text: #8E24AA;
-    --m-border: #D6D6D6;
+    --m-border: #D2D2D7;
     --m-border-strong: #CCCCCC;
     --m-control-border: #888888;
     --m-quote-bar: #888888;
@@ -1068,7 +1101,7 @@ footer.ty-footer { border-top: 1px solid var(--m-border); }
 /* Inline HTML tags without browser-default styling that fits the theme */
 #write abbr[title] { text-decoration: underline dotted var(--m-text-2); text-underline-offset: 0.2em; cursor: help; }
 #write ins { text-decoration: underline; text-decoration-color: var(--m-alert-tip); text-underline-offset: 0.2em; }
-#write samp { font-family: var(--m-font-mono); font-size: 0.875em; }
+#write samp { font-family: var(--monospace); font-size: 0.875em; }
 #write var { font-style: italic; color: var(--m-text); }
 #write q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 #write small { font-size: 0.8125em; color: var(--m-text-2); }
@@ -1188,3 +1221,80 @@ footer.ty-footer { border-top: 1px solid var(--m-border); }
 @media (prefers-reduced-transparency: reduce) {
   #write .md-image-btn { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(0, 0, 0, 0.85); }
 }
+
+/* ==========================================================================
+   Remaining Typora UI with built-in colours: quick open, sidebar search hits,
+   sidebar footer menu, editor toolbar, Get Info, outline popover, banners
+   ========================================================================== */
+#typora-quick-open-input input { border: 1px solid var(--m-control-border); border-radius: var(--m-radius-s); box-shadow: none; }
+#typora-quick-open-input input:focus { border-color: var(--m-focus); box-shadow: 0 0 0 3px var(--m-focus-halo); }
+.ty-file-search-match-text { background-color: var(--m-search-bg); color: var(--m-search-text); border-radius: 2px; }
+.sidebar-footer { border-top: 1px solid var(--m-border); }
+.sidebar-bottom-btn, .sidebar-bottom-btn:last-child { color: var(--m-text-2); background: var(--m-surface); }
+.sidebar-bottom-btn:not(:last-child) { border-bottom: 1px solid var(--m-border); }
+.sidebar-bottom-btn:hover, .sidebar-bottom-btn:last-child:hover { color: var(--m-text); background: var(--m-hover-bg); }
+.ty-side-sort-btn { border-radius: var(--m-radius-s); }
+.ty-side-sort-btn:hover { color: var(--m-text); opacity: 1; }
+/* Typora draws the active icon in the accent colour on the active-file fill; both are blue here, so the icon vanished */
+.ty-side-sort-btn.active, .ty-side-sort-btn.active:hover { color: var(--m-on-accent); background: var(--m-active-bg); opacity: 1; }
+#typora-sidebar-resizer:not(.dragging) .typora-sidebar-resizer-bar:hover, #typora-sidebar-resizer.dragging .typora-sidebar-resizer-bar { background: var(--m-accent-fill); }
+.ty-on-typewriter-mode #footer-more-btn, .ty-on-typewriter-mode #toggle-typewriter-mode-btn { color: var(--m-link); }
+
+body .ty-editor-toolbar, body .ty-editor-toolbar-menu, body #outline-dropdown, body #ty-preview-open-menu {
+  color: var(--m-text);
+  background-color: var(--m-surface);
+  border: 1px solid var(--m-border);
+  box-shadow: var(--m-shadow-pop);
+  -webkit-filter: none; filter: none;
+}
+body .ty-editor-toolbar-menu, body #outline-dropdown, body #ty-preview-open-menu { border-radius: var(--m-radius-l); }
+body .ty-editor-toolbar-btn, body .ty-editor-toolbar-menu-item { border-radius: var(--m-radius-s); }
+body .ty-editor-toolbar-btn:hover, body .ty-editor-toolbar-btn.hover, body .ty-editor-toolbar-btn.active,
+body .ty-editor-toolbar-menu-item:hover, body .ty-editor-toolbar-menu-item.active { background: var(--m-hover-bg); }
+body .ty-editor-toolbar-divider, body .ty-editor-toolbar-menu-divider { background: var(--m-border); }
+body .ty-editor-toolbar-tooltip { color: var(--m-text); background: var(--m-surface); border: 1px solid var(--m-border); border-radius: var(--m-radius-s); box-shadow: var(--m-shadow-pop); }
+
+#file-info-content, .file-info-field, .file-info-item-subtitle { color: var(--m-text-2); }
+.file-info-field-value { color: var(--m-text); }
+.file-info-save-btn { color: var(--m-text); border: 1px solid var(--m-control-border); border-radius: var(--m-radius-s); }
+.file-info-save-btn:hover { color: var(--m-text); background-color: var(--m-hover-bg); border-color: var(--m-control-border); }
+#file-info-filename-input-ext:hover, #file-info-filename[data-disabled=false]:hover,
+#file-info-file-path .file-info-field-value:hover, #file-info-filename-input:focus { background-color: var(--m-hover-bg); }
+
+#save-error-banner { color: var(--m-text); background: color-mix(in srgb, var(--m-alert-caution) 14%, var(--m-surface)); border-bottom: 1px solid color-mix(in srgb, var(--m-alert-caution) 45%, transparent); }
+.segmented-control span { border-color: var(--m-control-border); }
+.segmented-control input:checked + span { color: var(--m-on-accent); background-color: var(--m-accent-fill); }
+.typora-on-moving td { background-color: var(--m-hover-bg); }
+.uploading-line { background-color: var(--m-border-strong); }
+
+/* Editing-time hint text (definitions, attributes, block markers) */
+.md-def-name:before, .md-def-title:before, .md-def-url:empty:before, .md-def-footnote .md-def-content:empty:after,
+.md-header-span .md-attr, .md-blockmeta, .md-math-prep, .md-rawblock-before, .md-rawblock-after,
+.md-diagram-panel-preview:empty:before, .ty-fi-diagram:before { color: var(--m-md-char); }
+#write .md-content { color: var(--m-md-char); }
+
+/* Sidebar rows: Finder-style side insets (10px to the pill, 10px inside it) */
+#typora-sidebar .outline-item, #typora-sidebar .outline-item:hover { margin-left: 10px; margin-right: 10px; padding-right: 10px; }
+/* Outline rows use the Files tree grid: pill edge to edge, text on the icon column, 18px per level */
+#typora-sidebar #outline-content { padding-left: 0; padding-right: 0; }
+#typora-sidebar .outline-h1 > .outline-item { padding-left: 12px; }
+#typora-sidebar .outline-h2 > .outline-item { padding-left: 30px; }
+#typora-sidebar .outline-h3 > .outline-item { padding-left: 48px; }
+#typora-sidebar .outline-h4 > .outline-item { padding-left: 66px; }
+#typora-sidebar .outline-h5 > .outline-item { padding-left: 84px; }
+#typora-sidebar .outline-h6 > .outline-item { padding-left: 102px; }
+#typora-sidebar .file-tree-node .file-node-content { margin: 0 10px; }
+#typora-sidebar .file-tree-node .file-node-background { left: 10px; right: 10px; }
+
+/* ==========================================================================
+   Inactive window: text selection turns grey, like macOS. (WebKit only
+   re-styles ::selection and scrollbars when the window loses focus; rows,
+   tabs and checkboxes do not update reliably, so they keep the accent.)
+   ========================================================================== */
+::selection:window-inactive, #write ::selection:window-inactive, #typora-source ::selection:window-inactive { background: var(--m-hover-bg); color: inherit; }
+
+/* Sidebar outline rows: no hover fill, like the Files tree and macOS sidebars (the popover keeps it, like a menu) */
+#typora-sidebar .outline-item:not(.outline-item-active):hover { background: transparent; }
+
+/* Icon at the right of a location row in the sidebar menu: same blue-on-blue default as the sort buttons */
+.sidebar-folder-right-icon:hover { color: var(--m-on-accent); background: color-mix(in srgb, var(--m-on-accent) 25%, transparent); border-radius: var(--m-radius-s); }
